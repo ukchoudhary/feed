@@ -1,13 +1,13 @@
 // imports
 const express = require('express');
 const { json } = require('body-parser');
-const { postRouter } = require('./routes/posts');
+const { feedRouter } = require('./routes/feed');
 
 
 const app = express();
 
 // middlewares
 app.use(json())
-app.use(postRouter)
+app.use(feedRouter)
 
 module.exports = { app }
