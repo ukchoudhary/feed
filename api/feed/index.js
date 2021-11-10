@@ -10,7 +10,10 @@ const getFeed = async (req, res, next) => {
     const size = req.size;
     const offset = req.offset;
 
-    const filterdResult = feed;
+    let filterdResult = feed;
+    if (req.query.name) {
+      filterdResult = feed.filter((item) => item.name === req.query.name);
+    }
 
     const result = filterdResult.slice(offset, offset + size);
     return res.status(200).json({ status: true, data: result });
