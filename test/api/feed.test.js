@@ -22,3 +22,13 @@ it("returns feeds of length 10 when query parameter are size=negetive&page=naget
   const res = await request(app).get(`/feed?size=-5&page=1`).send().expect(200);
   expect(res.body.data.length).toEqual(10);
 });
+
+it("returns feeds in which name contain word 'Designer' when query parameter are name=Designer", async () => {
+  const res = await request(app).get(`/feed?name=Designer`).send().expect(200);
+  const feeds = res.body.data;
+  for (const item of feeds) {
+    expect(item.name).toEqual("Designer");
+  }
+});
+
+
