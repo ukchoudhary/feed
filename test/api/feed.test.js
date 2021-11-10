@@ -19,9 +19,6 @@ it("returns feeds of length 5 when query parameter are size=5&page=1", async () 
 });
 
 it("returns feeds of length 10 when query parameter are size=negetive&page=nagetive", async () => {
-  const res = await request(app)
-    .get(`/feed?size=-5&page=-1`)
-    .send()
-    .expect(200);
+  const res = await request(app).get(`/feed?size=-5&page=1`).send().expect(200);
   expect(res.body.data.length).toEqual(10);
 });
