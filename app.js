@@ -1,4 +1,5 @@
 // imports
+require("dotenv").config();
 const express = require('express');
 const { json } = require('body-parser');
 const { feedRouter } = require('./routes/feed');

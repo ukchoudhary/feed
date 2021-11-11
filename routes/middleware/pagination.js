@@ -2,7 +2,6 @@
 
 const pagination = async (req, res, next) => {
   try {
-    console.log("pagenation paramas", req.query.size, req.query.page);
     let size = req.query.size || 10;
     let page = req.query.page || 1;
     if (size < 0) {
@@ -20,9 +19,11 @@ const pagination = async (req, res, next) => {
 
     next();
   } catch (error) {
-    return res
-      .status(500)
-      .json({ status: false, message: "something went wrong", error: error });
+    return res.status(400).json({
+      status: false,
+      message: "Invalid query parameter",
+      error: error,
+    });
   }
 };
 
