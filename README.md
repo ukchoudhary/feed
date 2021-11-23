@@ -1,6 +1,6 @@
 # Feed Search
 
-**This service contains API to search and sort in feed.**
+**This service contains all API to search and sort in feed.**
 
 ## Setup
 - Add .env file, copy .env.example contents to .env
